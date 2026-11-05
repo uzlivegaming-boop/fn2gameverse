@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as FavoritesRouteImport } from './routes/favorites'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MyGamesRouteImport } from './routes/my-games'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as GamesIndexRouteImport } from './routes/games.index'
+import { Route as GamesIdRouteImport } from './routes/games.$id'
+import { Route as GamesAddRouteImport } from './routes/games.add'
+import { Route as ProfileIndexRouteImport } from './routes/profile.index'
+import { Route as GamesIdEditRouteImport } from './routes/games_.$id.edit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FavoritesRoute = FavoritesRouteImport.update({
+  id: '/favorites',
+  path: '/favorites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyGamesRoute = MyGamesRouteImport.update({
+  id: '/my-games',
+  path: '/my-games',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesIndexRoute = GamesIndexRouteImport.update({
+  id: '/games/',
+  path: '/games/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesIdRoute = GamesIdRouteImport.update({
+  id: '/games/$id',
+  path: '/games/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesAddRoute = GamesAddRouteImport.update({
+  id: '/games/add',
+  path: '/games/add',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileIndexRoute = ProfileIndexRouteImport.update({
+  id: '/profile/',
+  path: '/profile/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesIdEditRoute = GamesIdEditRouteImport.update({
+  id: '/games_/$id/edit',
+  path: '/games/$id/edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/favorites': typeof FavoritesRoute
+  '/login': typeof LoginRoute
+  '/my-games': typeof MyGamesRoute
+  '/register': typeof RegisterRoute
+  '/games/$id': typeof GamesIdRoute
+  '/games/add': typeof GamesAddRoute
+  '/games/': typeof GamesIndexRoute
+  '/profile/': typeof ProfileIndexRoute
+  '/games/$id/edit': typeof GamesIdEditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/favorites': typeof FavoritesRoute
+  '/login': typeof LoginRoute
+  '/my-games': typeof MyGamesRoute
+  '/register': typeof RegisterRoute
+  '/games/$id': typeof GamesIdRoute
+  '/games/add': typeof GamesAddRoute
+  '/games': typeof GamesIndexRoute
+  '/profile': typeof ProfileIndexRoute
+  '/games/$id/edit': typeof GamesIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/favorites': typeof FavoritesRoute
+  '/login': typeof LoginRoute
+  '/my-games': typeof MyGamesRoute
+  '/register': typeof RegisterRoute
+  '/games/$id': typeof GamesIdRoute
+  '/games/add': typeof GamesAddRoute
+  '/games/': typeof GamesIndexRoute
+  '/profile/': typeof ProfileIndexRoute
+  '/games_/$id/edit': typeof GamesIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/favorites'
+    | '/login'
+    | '/my-games'
+    | '/register'
+    | '/games/$id'
+    | '/games/add'
+    | '/games/'
+    | '/profile/'
+    | '/games/$id/edit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/favorites'
+    | '/login'
+    | '/my-games'
+    | '/register'
+    | '/games/$id'
+    | '/games/add'
+    | '/games'
+    | '/profile'
+    | '/games/$id/edit'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/favorites'
+    | '/login'
+    | '/my-games'
+    | '/register'
+    | '/games/$id'
+    | '/games/add'
+    | '/games/'
+    | '/profile/'
+    | '/games_/$id/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
+  FavoritesRoute: typeof FavoritesRoute
+  LoginRoute: typeof LoginRoute
+  MyGamesRoute: typeof MyGamesRoute
+  RegisterRoute: typeof RegisterRoute
+  GamesIdRoute: typeof GamesIdRoute
+  GamesAddRoute: typeof GamesAddRoute
+  GamesIndexRoute: typeof GamesIndexRoute
+  ProfileIndexRoute: typeof ProfileIndexRoute
+  GamesIdEditRoute: typeof GamesIdEditRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/favorites': {
+      id: '/favorites'
+      path: '/favorites'
+      fullPath: '/favorites'
+      preLoaderRoute: typeof FavoritesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-games': {
+      id: '/my-games'
+      path: '/my-games'
+      fullPath: '/my-games'
+      preLoaderRoute: typeof MyGamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games/': {
+      id: '/games/'
+      path: '/games'
+      fullPath: '/games/'
+      preLoaderRoute: typeof GamesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games/$id': {
+      id: '/games/$id'
+      path: '/games/$id'
+      fullPath: '/games/$id'
+      preLoaderRoute: typeof GamesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games/add': {
+      id: '/games/add'
+      path: '/games/add'
+      fullPath: '/games/add'
+      preLoaderRoute: typeof GamesAddRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile/': {
+      id: '/profile/'
+      path: '/profile'
+      fullPath: '/profile/'
+      preLoaderRoute: typeof ProfileIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games_/$id/edit': {
+      id: '/games_/$id/edit'
+      path: '/games/$id/edit'
+      fullPath: '/games/$id/edit'
+      preLoaderRoute: typeof GamesIdEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
+  FavoritesRoute: FavoritesRoute,
+  LoginRoute: LoginRoute,
+  MyGamesRoute: MyGamesRoute,
+  RegisterRoute: RegisterRoute,
+  GamesIdRoute: GamesIdRoute,
+  GamesAddRoute: GamesAddRoute,
+  GamesIndexRoute: GamesIndexRoute,
+  ProfileIndexRoute: ProfileIndexRoute,
+  GamesIdEditRoute: GamesIdEditRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
